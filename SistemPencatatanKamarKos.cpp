@@ -17,9 +17,7 @@ struct Kamar {
 Kamar dataKamar[JUMLAH_KAMAR];
 
 
-// =========================
 // 1. Fungsi Inisialisasi
-// =========================
 void inisialisasiDataKamar() {
     int nomorAwal = 101;
 
@@ -29,14 +27,66 @@ void inisialisasiDataKamar() {
         dataKamar[i].statusHuni = "Kosong";
         dataKamar[i].statusBayar = "Belum Bayar";
     }
+    //   DATA KAMAR SAMPLE 
+    dataKamar[0].penghuni     = "Budi";
+    dataKamar[0].statusHuni   = "Terisi";
+    dataKamar[0].statusBayar  = "Belum Bayar";
+
+    dataKamar[1].penghuni     = "Siti";
+    dataKamar[1].statusHuni   = "Terisi";
+    dataKamar[1].statusBayar  = "Lunas";
+
+    dataKamar[2].penghuni     = "Andi";
+    dataKamar[2].statusHuni   = "Terisi";
+    dataKamar[2].statusBayar  = "Belum Bayar";
+
+    dataKamar[3].penghuni     = "Rina";
+    dataKamar[3].statusHuni   = "Terisi";
+    dataKamar[3].statusBayar  = "Lunas";
+
+    dataKamar[4].penghuni     = "Joko";
+    dataKamar[4].statusHuni   = "Terisi";
+    dataKamar[4].statusBayar  = "Belum Bayar";
 
     cout << "Data kamar berhasil diinisialisasi!\n";
 }
 
+// 2. SORTING KHUSUS MENU 1 – Lunas → Belum Bayar
+void sortPembayaranMenu1() {
 
-// =========================
+    for (int i = 0; i < JUMLAH_KAMAR - 1; i++) {
+        for (int j = 0; j < JUMLAH_KAMAR - 1 - i; j++) {
+
+            // Jika yang sekarang Belum Bayar dan setelahnya Lunas → tukar
+            if (dataKamar[j].statusBayar == "Lunas" &&
+                dataKamar[j+1].statusBayar == "Belum Bayar") 
+            {
+                Kamar temp = dataKamar[j];
+                dataKamar[j] = dataKamar[j+1];
+                dataKamar[j+1] = temp;
+            }
+        }
+    }
+}
+
+
+// 3. MENU 1 – Tampilkan Semua Kamar 
+void tampilkanSemuaKamar() {
+
+    cout << "\n===== DAFTAR SEMUA KAMAR (DIURUT PEMBAYARAN) =====\n";
+
+    sortPembayaranMenu1();
+
+    for (int i = 0; i < JUMLAH_KAMAR; i++) {
+        cout << "Kamar " << dataKamar[i].nomor << endl;
+        cout << " Penghuni      : " << dataKamar[i].penghuni << endl;
+        cout << " Status Huni   : " << dataKamar[i].statusHuni << endl;
+        cout << " Status Bayar  : " << dataKamar[i].statusBayar << endl;
+        cout << "----------------------------------\n";
+    }
+}
+
 // 2. Menu Utama
-// =========================
 void tampilkanMenu() {
     cout << "\n========== MENU UTAMA ==========\n";
     cout << "1. Tampilkan Semua Kamar\n";
@@ -51,9 +101,7 @@ void tampilkanMenu() {
 }
 
 
-// =========================
 // PROGRAM UTAMA
-// =========================
 int main() {
 
     // 1. Inisialisasi semua kamar
@@ -70,8 +118,7 @@ int main() {
         switch (pilihan) {
 
             case 1:
-                cout << "[Menu 1] Tampilkan Semua Kamar\n";
-                // nanti memanggil: tampilkanSemuaKamar();
+                tampilkanSemuaKamar();
                 break;
 
             case 2:
