@@ -86,7 +86,54 @@ void tampilkanSemuaKamar() {
     }
 }
 
-// 2. Menu Utama
+
+// 4. MENU 2 – Cari Kamar Berdasarkan Nomor
+void cariKamarBerdasarkanNomor() {
+    int nomorCari;
+    cout << "Masukkan nomor kamar yang ingin dicari: ";
+    cin >> nomorCari;
+
+    bool ditemukan = false;
+
+
+    for (int i = 0; i < JUMLAH_KAMAR; i++) {
+
+
+        if (dataKamar[i].nomor == nomorCari) {
+            ditemukan = true;
+
+            cout << "\n=== HASIL PENCARIAN ===\n";
+            cout << "Kamar " << dataKamar[i].nomor << endl;
+
+
+            // Jika kamar TERISI → tampilkan data lengkap
+            if (dataKamar[i].statusHuni == "Terisi") {
+                cout << " Status Huni      : " << dataKamar[i].statusHuni << endl;
+                cout << " Nama Penghuni    : " << dataKamar[i].penghuni << endl;
+                cout << " Status Pembayaran: " << dataKamar[i].statusBayar << endl;
+            }
+            else {
+                // Jika kamar kosong
+                cout << " Status Huni       : Kosong\n";
+                cout << " Penghuni          : -\n";
+                cout << "Status Pembayaran  : -\n"
+            }
+
+            cout << "----------------------------------\n";
+
+
+            break;
+        }
+    }
+
+
+    if (!ditemukan) {
+        cout << "\nNomor kamar tidak ditemukan!\n";
+    }
+}
+
+
+// MENU UTAMA
 void tampilkanMenu() {
     cout << "\n========== MENU UTAMA ==========\n";
     cout << "1. Tampilkan Semua Kamar\n";
@@ -99,7 +146,6 @@ void tampilkanMenu() {
     cout << "================================\n";
     cout << "Pilih menu: ";
 }
-
 
 // PROGRAM UTAMA
 int main() {
@@ -122,8 +168,7 @@ int main() {
                 break;
 
             case 2:
-                cout << "[Menu 2] Cari Kamar Berdasarkan Nomor\n";
-                // nanti memanggil: cariKamar();
+                 cariKamarBerdasarkanNomor();
                 break;
 
             case 3:
