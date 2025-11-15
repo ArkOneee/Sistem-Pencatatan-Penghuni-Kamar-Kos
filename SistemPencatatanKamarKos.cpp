@@ -116,7 +116,7 @@ void cariKamarBerdasarkanNomor() {
                 // Jika kamar kosong
                 cout << " Status Huni       : Kosong\n";
                 cout << " Penghuni          : -\n";
-                cout << "Status Pembayaran  : -\n"
+                cout << "Status Pembayaran  : -\n";
             }
 
             cout << "----------------------------------\n";
