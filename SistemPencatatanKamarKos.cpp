@@ -138,11 +138,10 @@ void tampilkanMenu() {
     cout << "\n========== MENU UTAMA ==========\n";
     cout << "1. Tampilkan Semua Kamar\n";
     cout << "2. Cari Kamar Berdasarkan Nomor\n";
-    cout << "3. Cari Penghuni Berdasarkan Nama\n";
-    cout << "4. Update Status Pembayaran\n";
-    cout << "5. Update Status Penghuni\n";
-    cout << "6. Laporan Tunggakan\n";
-    cout << "7. Keluar\n";
+    cout << "3. Update Status Pembayaran\n";
+    cout << "4. Update Status Penghuni\n";
+    cout << "5. Laporan Tunggakan\n";
+    cout << "6. Keluar\n";
     cout << "================================\n";
     cout << "Pilih menu: ";
 }
@@ -171,27 +170,23 @@ int main() {
                  cariKamarBerdasarkanNomor();
                 break;
 
-            case 3:
-                cout << "[Menu 3] Cari Penghuni Berdasarkan Nama\n";
-                // nanti memanggil: cariPenghuni();
-                break;
 
-            case 4:
+            case 3:
                 cout << "[Menu 4] Update Status Pembayaran\n";
                 // nanti memanggil: updatePembayaran();
                 break;
 
-            case 5:
+            case 4:
                 cout << "[Menu 5] Update Status Penghuni\n";
                 // nanti memanggil: updateStatusPenghuni();
                 break;
 
-            case 6:
+            case 5:
                 cout << "[Menu 6] Laporan Tunggakan Belum Bayar\n";
                 // nanti memanggil: laporanTunggakan();
                 break;
 
-            case 7:
+            case 6:
                 cout << "Keluar dari program...\n";
                 break;
 
@@ -199,7 +194,7 @@ int main() {
                 cout << "Pilihan menu tidak valid!\n";
         }
 
-    } while (pilihan != 7);
+    } while (pilihan != 6);
 
     return 0;
 }
