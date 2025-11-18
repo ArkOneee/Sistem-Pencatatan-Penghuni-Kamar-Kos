@@ -51,7 +51,7 @@ void inisialisasiDataKamar() {
     cout << "Data kamar berhasil diinisialisasi!\n";
 }
 
-// 2. SORTING KHUSUS MENU 1 – Lunas → Belum Bayar
+// 2. SORTING KHUSUS MENU 1 – Belum Bayar → Lunas
 void sortPembayaranMenu1() {
 
     for (int i = 0; i < JUMLAH_KAMAR - 1; i++) {
