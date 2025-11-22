@@ -262,8 +262,8 @@ void laporanTunggakan() {
 
             adaTunggakan = true;
 
-            cout << "Kamar: " << dataKamar[i].nomor << endl;
-            cout << "Penghuni  : " << dataKamar[i].penghuni << endl;
+            cout << "Kamar        : " << dataKamar[i].nomor << endl;
+            cout << "Penghuni     : " << dataKamar[i].penghuni << endl;
             cout << "Status Bayar : " << dataKamar[i].statusBayar << endl;
             cout << "---------------------------------------\n";
         }
