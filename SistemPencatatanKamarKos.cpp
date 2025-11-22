@@ -245,6 +245,35 @@ void updateStatusPenghuni() {
     }
 }
 
+
+// 6. MENU 5 – Laporan Tunggakan Pembayaran
+void laporanTunggakan() {
+
+    cout << "\n======= LAPORAN TUNGGAKAN PEMBAYARAN =======\n";
+
+    bool adaTunggakan = false;
+
+    for (int i = 0; i < JUMLAH_KAMAR; i++) {
+
+        // Tampilkan hanya kamar yang terisi & belum bayar
+        if (dataKamar[i].statusHuni == "Terisi" &&
+            dataKamar[i].statusBayar == "Belum Bayar") {
+
+            adaTunggakan = true;
+
+            cout << "Kamar: " << dataKamar[i].nomor << endl;
+            cout << "Penghuni  : " << dataKamar[i].penghuni << endl;
+            cout << "Status Bayar : " << dataKamar[i].statusBayar << endl;
+            cout << "---------------------------------------\n";
+        }
+    }
+
+    if (!adaTunggakan) {
+        cout << "Tidak ada kamar yang memiliki tunggakan pembayaran.\n";
+    }
+}
+
+
 // MENU UTAMA
 void tampilkanMenu() {
     cout << "\n========== MENU UTAMA ==========\n";
@@ -292,8 +321,7 @@ int main() {
                 break;
 
             case 5:
-                cout << "[Menu 6] Laporan Tunggakan Belum Bayar\n";
-                // nanti memanggil: laporanTunggakan();
+                laporanTunggakan();
                 break;
 
             case 6:
