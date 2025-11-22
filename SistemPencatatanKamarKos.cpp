@@ -133,6 +133,63 @@ void cariKamarBerdasarkanNomor() {
 }
 
 
+void updateStatusPembayaran() {
+
+    int nomorCari;
+    cout << "Masukkan nomor kamar yang ingin di-update pembayarannya: ";
+    cin >> nomorCari;
+
+    bool ditemukan = false;
+
+    // Sequential Search
+    for (int i = 0; i < JUMLAH_KAMAR; i++) {
+
+        if (dataKamar[i].nomor == nomorCari) {
+            ditemukan = true;
+
+            cout << "\n=== DATA KAMAR DITEMUKAN ===\n";
+            cout << "Kamar " << dataKamar[i].nomor << endl;
+            cout << " Penghuni      : " << dataKamar[i].penghuni << endl;
+            cout << " Status Huni   : " << dataKamar[i].statusHuni << endl;
+            cout << " Status Bayar  : " << dataKamar[i].statusBayar << endl;
+            cout << "----------------------------------\n";
+
+            // Hanya bisa update jika kamar TERISI
+            if (dataKamar[i].statusHuni == "Kosong") {
+                cout << "Kamar ini masih kosong, tidak bisa update pembayaran.\n";
+                return;
+            }
+
+            // Proses update
+            int pilih;
+            cout << "\nUbah status pembayaran menjadi:\n";
+            cout << "1. Lunas\n";
+            cout << "2. Belum Bayar\n";
+            cout << "Pilihan: ";
+            cin >> pilih;
+
+            if (pilih == 1) {
+                dataKamar[i].statusBayar = "Lunas";
+                cout << "\nStatus pembayaran berhasil diubah menjadi Lunas!\n";
+            }
+            else if (pilih == 2) {
+                dataKamar[i].statusBayar = "Belum Bayar";
+                cout << "\nStatus pembayaran berhasil diubah menjadi Belum Bayar!\n";
+            }
+            else {
+                cout << "\nPilihan tidak valid. Pembaruan dibatalkan.\n";
+            }
+
+            return; // selesai setelah update
+        }
+    }
+
+    if (!ditemukan) {
+        cout << "Nomor kamar tidak ditemukan!\n";
+    }
+}
+
+
 // MENU UTAMA
 void tampilkanMenu() {
     cout << "\n========== MENU UTAMA ==========\n";
@@ -172,8 +229,7 @@ int main() {
 
 
             case 3:
-                cout << "[Menu 4] Update Status Pembayaran\n";
-                // nanti memanggil: updatePembayaran();
+                updateStatusPembayaran();
                 break;
 
             case 4:
