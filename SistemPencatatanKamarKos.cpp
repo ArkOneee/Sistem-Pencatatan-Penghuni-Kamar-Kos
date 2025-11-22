@@ -189,6 +189,61 @@ void updateStatusPembayaran() {
     }
 }
 
+void updateStatusPenghuni() {
+
+    int nomorCari;
+    cout << "Masukkan nomor kamar yang ingin di-update penghuninya: ";
+    cin >> nomorCari;
+
+    bool ditemukan = false;
+
+    for (int i = 0; i < JUMLAH_KAMAR; i++) {
+
+        if (dataKamar[i].nomor == nomorCari) {
+            ditemukan = true;
+
+            cout << "\n=== DATA KAMAR ===\n";
+            cout << "Kamar " << dataKamar[i].nomor << endl;
+            cout << " Status Huni   : " << dataKamar[i].statusHuni << endl;
+            cout << " Penghuni      : " << dataKamar[i].penghuni << endl;
+            cout << "----------------------------------\n";
+
+            int pilih;
+            cout << "Ubah status penghuni menjadi:\n";
+            cout << "1. Kosong (keluar)\n";
+            cout << "2. Terisi (penghuni baru)\n";
+            cout << "Pilihan: ";
+            cin >> pilih;
+
+            if (pilih == 1) {
+                dataKamar[i].statusHuni = "Kosong";
+                dataKamar[i].penghuni = "-";
+                dataKamar[i].statusBayar = "Belum Bayar";
+
+                cout << "\nKamar berhasil dikosongkan!\n";
+            }
+            else if (pilih == 2) {
+                cout << "Masukkan nama penghuni baru: ";
+                cin.ignore();
+                getline(cin, dataKamar[i].penghuni);
+
+                dataKamar[i].statusHuni = "Terisi";
+                dataKamar[i].statusBayar = "Belum Bayar";
+
+                cout << "\nData penghuni berhasil diperbarui!\n";
+            }
+            else {
+                cout << "\nPilihan tidak valid.\n";
+            }
+
+            return;
+        }
+    }
+
+    if (!ditemukan) {
+        cout << "Nomor kamar tidak ditemukan!\n";
+    }
+}
 
 // MENU UTAMA
 void tampilkanMenu() {
@@ -233,8 +288,7 @@ int main() {
                 break;
 
             case 4:
-                cout << "[Menu 5] Update Status Penghuni\n";
-                // nanti memanggil: updateStatusPenghuni();
+                updateStatusPenghuni();
                 break;
 
             case 5:
