@@ -132,7 +132,7 @@ void cariKamarBerdasarkanNomor() {
     }
 }
 
-
+// 5. MENU 3 – Update Status Pembayaran
 void updateStatusPembayaran() {
 
     int nomorCari;
@@ -189,6 +189,7 @@ void updateStatusPembayaran() {
     }
 }
 
+// 6. MENU 4 – Update Status Penghuni 
 void updateStatusPenghuni() {
 
     int nomorCari;
@@ -246,7 +247,7 @@ void updateStatusPenghuni() {
 }
 
 
-// 6. MENU 5 – Laporan Tunggakan Pembayaran
+// 7. MENU 5 – Laporan Tunggakan Pembayaran
 void laporanTunggakan() {
 
     cout << "\n======= LAPORAN TUNGGAKAN PEMBAYARAN =======\n";
